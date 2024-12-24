@@ -4,7 +4,9 @@ const cors = require('cors');
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: 'https://health-declerations-lg.onrender.com'
+}))
 
 app.use('/declerations', require('./routes/declerations'));
 app.use('/users', require('./routes/users'));
