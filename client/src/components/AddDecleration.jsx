@@ -87,7 +87,7 @@ export default function AddDecleration() {
         e.preventDefault()
         try {
             if (validateId) {
-                const res = await fetch('http://localhost:2000/declerations/add', {
+                const res = await fetch('https://health-declerations-lg.onrender.com/declerations/add', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
