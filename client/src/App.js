@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path='/' Component={AddDecleration} />
+      <Route path='/' exect element={<AddDecleration />} />
       </Routes>
   </Router>
   );

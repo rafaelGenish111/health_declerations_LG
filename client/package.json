@@ -46,5 +46,6 @@
     "ajv": "^7.2.4",
     "gh-pages": "^6.2.0"
   },
-  "homepage": "https://rafaelgenish111.github.io/health_declerations_LG/"
+  "homepage": "https://rafaelgenish111.github.io/health_declerations_LG/",
+  "proxy": "https://health-declerations-lg.onrender.com"
 }
