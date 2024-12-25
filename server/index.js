@@ -4,15 +4,15 @@ const cors = require('cors');
 const app = express()
 
 app.use(express.json())
-// const corsOptions = {
-//     origin: ['http://localhost:3001', 'https://health-declerations-lg.onrender.com'], // הוספת דומיינים מורשים
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'], // שיטות HTTP מורשות
-//     credentials: true, // אם דרוש לשלוח קובצי Cookies
-//   };
+const corsOptions = {
+    origin: ['http://localhost:3001', 'https://health-declerations-lg.onrender.com'], // הוספת דומיינים מורשים
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // שיטות HTTP מורשות
+    credentials: true, // אם דרוש לשלוח קובצי Cookies
+  };
   
 app.use(cors(
-    // corsOptions
-    {origin: '*'}
+    corsOptions
+    // {origin: '*'}
 ));
 
 app.use('/declerations', require('./routes/declerations'));
