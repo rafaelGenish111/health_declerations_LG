@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/health_declerations_LG/static/css/main.88bfa2de.css",
-    "main.js": "/health_declerations_LG/static/js/main.2ebbc23e.js",
+    "main.js": "/health_declerations_LG/static/js/main.c623fb11.js",
     "index.html": "/health_declerations_LG/index.html",
     "main.88bfa2de.css.map": "/health_declerations_LG/static/css/main.88bfa2de.css.map",
-    "main.2ebbc23e.js.map": "/health_declerations_LG/static/js/main.2ebbc23e.js.map"
+    "main.c623fb11.js.map": "/health_declerations_LG/static/js/main.c623fb11.js.map"
   },
   "entrypoints": [
     "static/css/main.88bfa2de.css",
-    "static/js/main.2ebbc23e.js"
+    "static/js/main.c623fb11.js"
   ]
 }
