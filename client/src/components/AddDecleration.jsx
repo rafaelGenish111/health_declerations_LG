@@ -29,6 +29,8 @@ export default function AddDecleration() {
     const [date] = useState(new Date().toISOString().slice(0, 10))
     const [sign, setSign] = useState(null)
     const signPad = useRef(null)
+    const url ='http://localhost:2000'
+
 
     const formatDiseaseName = (diseaseName) => {
         return diseaseName.replace('_', ' ')
@@ -87,7 +89,7 @@ export default function AddDecleration() {
         e.preventDefault()
         try {
             if (validateId) {
-                const res = await fetch('https://health-declerations-lg.onrender.com/declerations/add', {
+                const res = await fetch(`${url}/declerations/add`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
