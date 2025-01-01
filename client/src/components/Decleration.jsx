@@ -67,6 +67,7 @@ export default function Decleration() {
                             <Typography variant='h4' component='h3'>טופס הצהרת בריאות {formData.first_name} {formData.last_name} </Typography>
                             <p>{ formattedDate}</p>
                         </Box>
+                        <Box className='Decleration-output'>
                         <h2>תעודת זהות: {formData.id}</h2>
                         <h2>טלפון: {formData.phone}</h2>
                         {Object.keys(formData.health_status).map((issue) => (
@@ -76,13 +77,13 @@ export default function Decleration() {
                             >
                                 <p>{formatDiseaseName(issue)}</p>
                                 {formData.health_status[issue] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankOutlinedIcon />}                                   
-                            </div>
-                            
+                            </div>                         
                         ))}
                         <div>
                         <p>חתימה</p>
                         <img src={signature} alt="חתימה"  />
                         </div>
+                        </Box>
                     </div>
                 ) : (
                     <h1>טוען...</h1>

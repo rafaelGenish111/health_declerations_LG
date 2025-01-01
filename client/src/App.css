@@ -38,7 +38,15 @@ body {
     grid-template-columns:1fr 1fr;
     gap: 20px;
     text-align: right;
-    
+    width: 70%;
+   
+  }
+
+  .Decleration-output {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
   .checkbox-container {
     display: flex;
