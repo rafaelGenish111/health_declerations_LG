@@ -7,7 +7,7 @@ export default function Home({ name }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     
-    const url = 'http://localhost:2000'
+    const url ='https://health-declerations-lg-1.onrender.com'
     
   const handleSubmit = async e => {
     e.preventDefault()

@@ -11,7 +11,7 @@ export default function Register() {
 
     const navigate = useNavigate()
 
-    const url = 'http://localhost:2000';
+    const url ='https://health-declerations-lg-1.onrender.com'
 
     const handleSubmit = async e => {
         e.preventDefault()

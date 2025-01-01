@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
 import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import { useNavigate } from 'react-router-dom';
 
-const url ='http://localhost:2000'
+const url ='https://health-declerations-lg-1.onrender.com'
 
 export default function Decleration() {
     const [formData, setFormData] = useState(null)
@@ -65,7 +65,8 @@ export default function Decleration() {
                             sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#d1b3b5', fontFamily: 'cursive' }}
                         >
                             <Typography variant='h4' component='h3'>טופס הצהרת בריאות {formData.first_name} {formData.last_name} </Typography>
-                            <p>{ formattedDate}</p>
+                            <p>{formattedDate}</p>
+                            <Button onClick={e=>navigate('/home')}>חזרה לדף הראשי</Button>
                         </Box>
                         <Box className='Decleration-output'>
                         <h2>תעודת זהות: {formData.id}</h2>

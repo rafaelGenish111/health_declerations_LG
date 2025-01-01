@@ -44,7 +44,7 @@ async function logIn(req, res) {
             } else {
                 if (compareSync(password, user[0].password)) {
                     const access_token = jwt.sign({ username: user[0].username, name: user[0].first_name }, 'KuKoBoLo', {
-                        expiresIn: '10m'
+                        expiresIn: '1h'
                     })
                     res.header("Authorization", `Bearer ${access_token}`).json({
                         msg: 'Authenticated successfully',

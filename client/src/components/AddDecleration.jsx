@@ -29,7 +29,7 @@ export default function AddDecleration() {
     const [date] = useState(new Date().toISOString().slice(0, 10))
     const [sign, setSign] = useState(null)
     const signPad = useRef(null)
-    const url ='http://localhost:2000'
+    const url ='https://health-declerations-lg-1.onrender.com'
 
 
     const formatDiseaseName = (diseaseName) => {
