@@ -1,6 +1,9 @@
 body {
   width: 100%;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
   
   @media (max-width: 768px) { 
     body {
@@ -11,6 +14,9 @@ body {
     text-align: center;
     margin: 0 auto;
     align-items: center;
+    @media (max-width: 768px) { 
+      max-width: 100%;
+    }
   }
   
   .header {
@@ -68,6 +74,7 @@ body {
   .signature-container {
     border: 2px solid black;
     padding: 10px; 
+    
   }
   
   .search-bar {
@@ -75,4 +82,15 @@ body {
     flex-direction: row;
     margin: 10px;
     justify-content: center;
+  }
+
+  .new-decleration {
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+    
+    @media (max-width: 768px) { 
+      max-width: 100%;
+    }
   }

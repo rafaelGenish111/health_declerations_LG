@@ -119,10 +119,15 @@ export default function AddDecleration() {
     return (
         <form onSubmit={handleSubmit} className='form'>
             <Box
-                sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#d1b3b5' }}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    backgroundColor: '#d1b3b5',
+                    width: '100%'
+                }}
                 className='header'
             >
-
                 <Typography variant='h6' component='h2'>הצהרת בריאות</Typography>
             </Box>
             <Box className='fields-container'>
@@ -171,17 +176,21 @@ export default function AddDecleration() {
             </Box>
             <Box>
                 <h1> </h1>
-                <Checkbox />
+                <Checkbox  />
                 <p> אני מאשרת כי כל המידע שמסרתי נכון</p>
             </Box>
             <Box className='signature-container'>
-                <SignatureCanvas
-                    ref={signPad}
-                    onEnd={handleSignatureChange}
-                    penColor='red'
-                    canvasProps={{ width: 500, height: 200, className: 'sigCanvas' }}
-                    className='signature-pad'
-                />
+            <SignatureCanvas
+  ref={signPad}
+  onEnd={handleSignatureChange}
+  penColor="red"
+  canvasProps={{
+    width: '100%', // מתאים את הרוחב לקונטיינר
+    height: 200,   // גובה סטטי
+    className: 'sigCanvas'
+  }}
+  className="signature-pad"
+/>
                     <Button type='button' onClick={clearSignature}>נקה חתימה</Button>
                 </Box>
                 <Box>
