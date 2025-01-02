@@ -29,7 +29,7 @@ export default function AddDecleration() {
     const [date] = useState(new Date().toISOString().slice(0, 10))
     const [sign, setSign] = useState(null)
     const signPad = useRef(null)
-    const url ='https://health-declerations-lg-1.onrender.com'
+    const url = 'https://health-declerations-lg-1.onrender.com'
 
 
     const formatDiseaseName = (diseaseName) => {
@@ -138,8 +138,8 @@ export default function AddDecleration() {
                         variant='outlined'
                         value={id}
                         onChange={e => setId(e.target.value)}
-                        error={!validateId(id)}
-                        helperText={!validateId(id) ? 'תעודת זהות לא תקינה' : ''}
+                        error={id && !validateId(id)}
+                        helperText={id && !validateId(id) ? 'תעודת זהות לא תקינה' : ''}
                     />
                 </Box>
                 <Box>
@@ -176,24 +176,24 @@ export default function AddDecleration() {
             </Box>
             <Box>
                 <h1> </h1>
-                <Checkbox  />
+                <Checkbox />
                 <p> אני מאשרת כי כל המידע שמסרתי נכון</p>
             </Box>
             <Box className='signature-container'>
-            <SignatureCanvas
-  ref={signPad}
-  onEnd={handleSignatureChange}
-  penColor="red"
-  canvasProps={{
-    width: '100%', // מתאים את הרוחב לקונטיינר
-    height: 200,   // גובה סטטי
-    className: 'sigCanvas'
-  }}
-  className="signature-pad"
-/>
-                    <Button type='button' onClick={clearSignature}>נקה חתימה</Button>
-                </Box>
-                <Box>
+                <SignatureCanvas
+                    ref={signPad}
+                    onEnd={handleSignatureChange}
+                    penColor="red"
+                    canvasProps={{
+                        width: '100%', // מתאים את הרוחב לקונטיינר
+                        height: 200,   // גובה סטטי
+                        className: 'sigCanvas'
+                    }}
+                    className="signature-pad"
+                />
+                <Button type='button' onClick={clearSignature}>נקה חתימה</Button>
+            </Box>
+            <Box>
                 <Button type='submit' variant="contained" color="primary" size="large">שלחי</Button>
             </Box>
         </form>
