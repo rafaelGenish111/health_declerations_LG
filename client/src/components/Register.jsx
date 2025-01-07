@@ -8,29 +8,35 @@ export default function Register() {
     const [lname, setLname] = useState(null)
     const [username, setUsername] = useState(null)
     const [password, setPassword] = useState(null)
+    const [submitPassword, setSubmitPassword] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(null)
 
     const navigate = useNavigate()
 
-    const url ='https://health-declerations-lg-1.onrender.com'
+    const url = 'http://localhost:2000' //'https://health-declerations-lg-1.onrender.com'
 
     const handleSubmit = async e => {
         e.preventDefault()
         try {
-            const res = await fetch(`${url}/users/signup`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ fname, lname, username, password })
-            })
-            const data = await res.json()
-            console.log(data);
-            if (data.err) {
-                alert(data.msg)
-                delete localStorage.token
+            if (password === submitPassword) {
+                const res = await fetch(`${url}/users/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ fname, lname, username, password })
+                })
+                const data = await res.json()
+                console.log(data);
+                if (data.err) {
+                    alert(data.msg)
+                    delete localStorage.token
+                } else {
+                    alert(`נרשמת בהצלחה, ${data.first_name}`)
+                    navigate('/login')
+                }
             } else {
-                alert(`נרשמת בהצלחה, ${data.first_name}`)
-                navigate('/login')
+                setErrorMessage('סיסמאות אינן תואמות. בדקי ונסי שנית')
             }
         } catch (error) {
 
@@ -88,6 +94,17 @@ export default function Register() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </Box>
+                    <Box>
+                        <TextField
+                            className='fields'
+                            label='אישור סיסמה'
+                            variant='outlined'
+                            type='password'
+                            value={submitPassword}
+                            onChange={(e) => setSubmitPassword(e.target.value)}
+                        />
+                    </Box>
+                    {errorMessage && <p style={{color:'red'}}>{ errorMessage}</p>}
                 </Box>
                 <Box>
                     <Button type='submit' variant="contained" color="primary" size="large">הרשמי</Button>

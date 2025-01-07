@@ -28,8 +28,11 @@ export default function AddDecleration() {
     })
     const [date] = useState(new Date().toISOString().slice(0, 10))
     const [sign, setSign] = useState(null)
+    const [isConfirm, setIsConfirm] = useState(false)
+    const [errorMeggage, setErrorMeggage] = useState(null)
     const signPad = useRef(null)
-    const url = 'https://health-declerations-lg-1.onrender.com'
+    
+    const url = 'http://localhost:2000' //'https://health-declerations-lg-1.onrender.com'
 
 
     const formatDiseaseName = (diseaseName) => {
@@ -89,25 +92,29 @@ export default function AddDecleration() {
         e.preventDefault()
         try {
             if (validateId) {
-                const res = await fetch(`${url}/declerations/add`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ id, fname, lname, phone, hltStt, date, sign })
-                })
-                const data = await res.json();
-                if (data.err === false) {
-                    console.log('Success:', data);
-                    navigate('/thankyou')
-
-                } else {
-                    if (data.msg.code === 'ER_BAD_NULL_ERROR') {
-                        alert("הפרטים שהזנת אינם תקינים")
+                if (isConfirm) {
+                    const res = await fetch(`${url}/declerations/add`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id, fname, lname, phone, hltStt, date, sign })
+                    })
+                    const data = await res.json();
+                    if (data.err === false) {
+                        console.log('Success:', data);
+                        navigate('/thankyou')
+    
                     } else {
-                        alert('המידע לא נקלט. נסי שנית')
-                        console.log('failed:', data);
-                    }
+                        if (data.msg.code === 'ER_BAD_NULL_ERROR') {
+                            alert("הפרטים שהזנת אינם תקינים")
+                        } else {
+                            alert('המידע לא נקלט. נסי שנית')
+                            console.log('failed:', data);
+                        }
+                    }                   
+                } else {
+                    setErrorMeggage('נא סמני את תיבת הסימון')
                 }
             } else {
                 alert('תעודת זהות אינה תקינה')
@@ -176,18 +183,22 @@ export default function AddDecleration() {
             </Box>
             <Box>
                 <h1> </h1>
-                <Checkbox />
+                <Checkbox
+                    checked={isConfirm}
+                    onChange={(e)=>setIsConfirm(e.target.checked)}
+                />
                 <p> אני מאשרת כי כל המידע שמסרתי נכון</p>
             </Box>
+            {errorMeggage && <p style={{color:'red'}}>{errorMeggage}</p>}
             <Box className='signature-container'>
                 <SignatureCanvas
                     ref={signPad}
                     onEnd={handleSignatureChange}
                     penColor="red"
                     canvasProps={{
-                        width: '100%', // מתאים את הרוחב לקונטיינר
-                        height: 200,   // גובה סטטי
-                        className: 'sigCanvas'
+
+                        height: 500,   // גובה סטטי
+                        className: 'signature-canvas'
                     }}
                     className="signature-pad"
                 />

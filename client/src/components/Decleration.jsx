@@ -5,7 +5,8 @@ import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlin
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import { useNavigate } from 'react-router-dom';
 
-const url ='https://health-declerations-lg-1.onrender.com'
+const url = 'http://localhost:2000' //'https://health-declerations-lg-1.onrender.com'
+
 
 export default function Decleration() {
     const [formData, setFormData] = useState(null)

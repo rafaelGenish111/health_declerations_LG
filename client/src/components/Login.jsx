@@ -8,7 +8,7 @@ export default function Login({ onLogin }) {
     const [username, setUsername] = useState(null)
     const [password, setPassword] = useState(null)
     // const [setName] = useState(null)
-    const url ='https://health-declerations-lg-1.onrender.com'
+    const url = 'http://localhost:2000' //'https://health-declerations-lg-1.onrender.com'
 
     const navigate = useNavigate()
 
